@@ -51,5 +51,6 @@ void rtc_set_time(
 
 void rtc_write_password(uint8_t *pwd);
 uint8_t rtc_read_password(uint8_t *pwd);
+void rtc_set_wkup(uint32_t ms);
 
 #endif

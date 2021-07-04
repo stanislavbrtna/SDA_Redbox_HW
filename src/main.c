@@ -62,7 +62,7 @@ extern volatile float batt_adc_const;
 volatile float ADC_Measurement_const;
 
 /*===========================================================================*/
-static void sda_platform_board_rev_detect();
+
 
 void Delay(__IO uint32_t nCount) {
   for(; nCount != 0; nCount--);

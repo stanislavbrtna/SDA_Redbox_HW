@@ -47,4 +47,9 @@
 #define SDA_BASE_USB_DETECT_PIN GPIO_PIN_7
 #define SDA_BASE_USB_DETECT_PORT GPIOB
 
+void Delay(__IO uint32_t nCount);
+
+void sda_platform_board_rev_detect();
+void sda_serial_enable();
+
 #endif

@@ -1,3 +1,5 @@
+#ifndef __HW_MISC_H_
+#define __HW_MISC_H_
 #include "sda_platform.h"
 
 void tick_update_buttons();
@@ -9,3 +11,5 @@ void show_splash();
 void lcd_bw_test();
 void sda_hw_sleep();
 void tick_update_status_led();
+
+#endif
