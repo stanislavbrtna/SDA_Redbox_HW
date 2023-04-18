@@ -100,7 +100,7 @@ uint8_t touch_read_xy_m30(touchXY *result) {
       && (result->x > 350)
       && (result->y > 350)) {
     // ok
-	// printf("x: %u, y:%u\n", result->x, result->y);
+	//printf("ok: x: %u, y:%u\n", result->x, result->y);
     return 1;
   } else {
     // read failed

@@ -255,6 +255,11 @@ uint8_t svp_unlink(uint8_t* path) {
   return 0;
 }
 
+uint8_t svp_rmdir(uint8_t* path) {
+  f_unlink ((char *)path);
+  return 0;
+}
+
 uint8_t svp_is_dir(uint8_t* path) {
   FRESULT fr;
   FILINFO fno;

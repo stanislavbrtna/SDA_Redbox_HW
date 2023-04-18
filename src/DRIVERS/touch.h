@@ -42,8 +42,8 @@ typedef struct {
 #include "../sda_platform.h"
 
 typedef struct {
-	uint16_t x;
-	uint16_t y;
+	volatile uint16_t x;
+	volatile uint16_t y;
 } touchXY;
 
 extern touchCalibDataStruct touchCalibData;

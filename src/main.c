@@ -333,7 +333,8 @@ int main(void) {
 		sda_setLcdCalibrationFlag(1);
 	}
 
-	//sda_calibrate();
+	// test!!
+	//while(1) sda_calibrate();
 
 	svp_mount();
 
@@ -342,6 +343,8 @@ int main(void) {
 	sda_set_led(0);
 
 	show_splash();
+
+	touch_lock = SDA_LOCK_UNLOCKED;
 
 	// update time before jump into main
 	rtc_update_struct();

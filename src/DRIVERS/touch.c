@@ -236,9 +236,9 @@ uint8_t touch_read_adc_xy(touchXY *result) {
 	volatile uint32_t x = 0;
 	volatile uint32_t y = 0;
 
-	set_gnd(GPIOA, GPIO_PIN_7); // ADC 2 OK
+	set_out(GPIOA, GPIO_PIN_7); // ADC 2 OK
 	set_ain(GPIOA, GPIO_PIN_6); // ADC 1 OK
-	set_out(GPIOB, GPIO_PIN_9); // P2 OK
+	set_gnd(GPIOB, GPIO_PIN_9); // P2 OK
 	set_in(GPIOB, GPIO_PIN_8);  // P1 OK
 
 	HAL_ADC_Start(&g_AdcHandle);
@@ -264,7 +264,7 @@ uint8_t touch_read_adc_xy(touchXY *result) {
 	result->x = x;
 	result->y = y;
 
-	//printf("x: %u, y:%u\n", x, y);
+	//printf("ADC: x: %u, y:%u\n", x, y);
 
 	return 1; // result is at this point always valid
 }

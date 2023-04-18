@@ -25,6 +25,11 @@ void sda_set_led(uint8_t set) {
 	}
 }
 
+uint8_t sda_card_inserted() {
+  // dummy, Redbox does not have card detect
+  return 1;
+}
+
 uint8_t sda_serial_recieve(uint8_t *str, uint32_t len, uint32_t timeout) {
 	return uart3_recieve(str, len, timeout);
 }
@@ -95,7 +100,19 @@ void sda_usb_serial_disable() {
   return;
 }
 
+uint8_t sda_usb_serial_recieve_init() {
+  return 0;
+}
+
 uint8_t sda_usb_serial_is_enabled() {
+  return 0;
+}
+
+uint8_t sda_usb_serial_get_rdy() {
+  return 0;
+}
+
+uint16_t sda_usb_serial_get_str(uint8_t *str) {
   return 0;
 }
 
