@@ -2,8 +2,7 @@
 #define __usart3_H
 
 
-/* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal.h"
+#include "../sda_platform.h"
 
 extern void Error_Handler(void);
 
@@ -15,6 +14,9 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle);
 uint8_t uart3_recieve(uint8_t *str, uint32_t len, uint32_t timeout);
 HAL_StatusTypeDef HAL_UART_AbortReceive(UART_HandleTypeDef *huart);
 void uart3_transmit(uint8_t *str, uint32_t len);
-#endif 
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+uint8_t uart3_recieve_IT();
+uint8_t uart3_get_rdy();
+uint16_t uart3_get_str(uint8_t *str); // return: len
+
+#endif 

@@ -238,7 +238,7 @@ void lcd_Init_Seq(){
 
 	LCD_Write_COM(0xD2);
 	LCD_Write_DATA(0x01);
-	LCD_Write_DATA(0x02);
+	LCD_Write_DATA(0x00); // fosc (2)
 
 	LCD_Write_COM(0xC0);
 	LCD_Write_DATA(0x10);
@@ -249,8 +249,24 @@ void lcd_Init_Seq(){
 
 	LCD_Write_COM(0xC5);
 	LCD_Write_DATA(0x03);
-
+/* better to just leave the defaults...
+	// gamma settings
 	LCD_Write_COM(0xC8);
+	LCD_Write_DATA(0x00); // 1
+	LCD_Write_DATA(0x32); // 2
+	LCD_Write_DATA(0x36); // 3
+	LCD_Write_DATA(0x45); // 4 RP1 RP0 (45) 75
+	LCD_Write_DATA(0x08); // 5 VRP0 (6)
+	LCD_Write_DATA(0x19); // 6 VRP1 (16)
+	LCD_Write_DATA(0x37); // 7
+	LCD_Write_DATA(0x75); // 8
+	LCD_Write_DATA(0x77); // 9
+	LCD_Write_DATA(0x54); // 10
+	LCD_Write_DATA(0x0C); // 11
+	LCD_Write_DATA(0x00); // 12
+*/
+	/* orig gamma
+	 * LCD_Write_COM(0xC8);
 	LCD_Write_DATA(0x00);
 	LCD_Write_DATA(0x32);
 	LCD_Write_DATA(0x36);
@@ -262,7 +278,7 @@ void lcd_Init_Seq(){
 	LCD_Write_DATA(0x77);
 	LCD_Write_DATA(0x54);
 	LCD_Write_DATA(0x0C);
-	LCD_Write_DATA(0x00);
+	LCD_Write_DATA(0x00);*/
 
 	LCD_Write_COM(0x36);
 	LCD_Write_DATA(0x0A);

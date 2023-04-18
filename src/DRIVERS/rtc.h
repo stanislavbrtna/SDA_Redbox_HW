@@ -39,6 +39,7 @@ extern rtcTimeDate rtc;
 
 void rtc_init();
 void rtc_update_struct();
+void rtc_set_wkup(uint32_t ms);
 void rtc_set_time(
 									uint16_t year,
 									uint8_t  day,
@@ -51,6 +52,8 @@ void rtc_set_time(
 
 void rtc_write_password(uint8_t *pwd);
 uint8_t rtc_read_password(uint8_t *pwd);
-void rtc_set_wkup(uint32_t ms);
+
+uint32_t rtc_read_locked();
+void rtc_write_locked(uint32_t val);
 
 #endif

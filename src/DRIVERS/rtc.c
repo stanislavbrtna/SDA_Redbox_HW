@@ -127,6 +127,9 @@ void HAL_RTC_MspInit(RTC_HandleTypeDef *hrtc) {
   }
 
   __HAL_RCC_RTC_ENABLE();
+
+  HAL_NVIC_SetPriority(RTC_WKUP_IRQn, 0x0E, 0);
+  HAL_NVIC_EnableIRQ(RTC_WKUP_IRQn);
 }
 
 void HAL_RTC_MspDeInit(RTC_HandleTypeDef *hrtc) {
@@ -165,6 +168,17 @@ void rtc_write_password(uint8_t *pwd) {
   HAL_RTCEx_BKUPWrite(&RtcHandle, RTC_BKP_DR8, pwd[28] << 24 | pwd[29] << 16 | pwd[30] << 8 | pwd[31]);
   //HAL_PWR_DisableBkUpAccess(); //??
   __HAL_RTC_WRITEPROTECTION_ENABLE(&RtcHandle);
+}
+
+void rtc_write_locked(uint32_t val) {
+  __HAL_RTC_WRITEPROTECTION_DISABLE(&RtcHandle);
+    HAL_PWR_EnableBkUpAccess();
+  HAL_RTCEx_BKUPWrite(&RtcHandle, RTC_BKP_DR9, val);
+  __HAL_RTC_WRITEPROTECTION_ENABLE(&RtcHandle);
+}
+
+uint32_t rtc_read_locked() {
+  return HAL_RTCEx_BKUPRead(&RtcHandle, RTC_BKP_DR9);
 }
 
 uint8_t rtc_read_password(uint8_t *pwd) {

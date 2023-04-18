@@ -10,9 +10,9 @@ ADC_HandleTypeDef g_AdcHandle;
 ADC_HandleTypeDef g_AdcHandle2;
 UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
-RNG_HandleTypeDef rng;
+//RNG_HandleTypeDef rng;
 
-TIM_HandleTypeDef beeptimer;
+//TIM_HandleTypeDef beeptimer;
 
 /*===========================================================================*/
 /*                            SVP Globals                                    */
@@ -42,19 +42,19 @@ volatile uint32_t backlight_scaler;
 
 volatile uint8_t sdaWakeupFlag;
 
-volatile uint8_t beep_flag;
-volatile uint16_t beep_t;
-volatile uint32_t beep_scaler;
+//volatile uint8_t beep_flag;
+//volatile uint16_t beep_t;
+//volatile uint32_t beep_scaler;
 
-volatile uint8_t sdaSerialEnabled;
-volatile uint8_t sdaDbgSerialEnabled;
+//volatile uint8_t sdaSerialEnabled;
+//volatile uint8_t sdaDbgSerialEnabled;
 
 // led pattern array
-uint8_t led_pattern[10];
-uint16_t led_counter;
+//uint8_t led_pattern[10];
+//uint16_t led_counter;
 
 // battery measurement
-uint16_t batt_array[60];
+//uint16_t batt_array[60];
 
 // battery measurement
 extern volatile uint32_t batt_val;
@@ -269,11 +269,6 @@ void SysTick_Handler(void) {
 }
 
 
-void USART3_IRQHandler(void) {
-  HAL_UART_IRQHandler(&huart3);
-}
-
-
 int main(void) {
 	__initialize_hardware();
 
@@ -337,6 +332,8 @@ int main(void) {
 		sda_calibrate();
 		sda_setLcdCalibrationFlag(1);
 	}
+
+	//sda_calibrate();
 
 	svp_mount();
 

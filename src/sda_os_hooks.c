@@ -29,6 +29,18 @@ uint8_t sda_serial_recieve(uint8_t *str, uint32_t len, uint32_t timeout) {
 	return uart3_recieve(str, len, timeout);
 }
 
+uint8_t sda_serial_recieve_init() {
+  return uart3_recieve_IT();
+}
+
+uint8_t sda_serial_get_rdy() {
+  return uart3_get_rdy();
+}
+
+uint16_t sda_serial_get_str(uint8_t *str) {
+  return uart3_get_str(str);
+}
+
 void sda_serial_transmit(uint8_t *str, uint32_t len) {
 	uart3_transmit(str, len);
 }

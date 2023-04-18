@@ -31,14 +31,15 @@ SOFTWARE.
 #define TOUCH_TOUCH_H_
 
 typedef struct {
-	float a;
-	float b;
-	float c;
-	float d;
-	float e;
+  float cx;
+  float cy;
+  float a[4];
+  float b[4];
+  float c[4];
+  float d[4];
 } touchCalibDataStruct;
 
-#include "../main.h"
+#include "../sda_platform.h"
 
 typedef struct {
 	uint16_t x;
@@ -48,8 +49,10 @@ typedef struct {
 extern touchCalibDataStruct touchCalibData;
 
 void touchInit(); // inits touch adcs, inits default calibration values
-void touchSleep();
+void touchAdcInitExt(void);
+
 void touchWake();
+void touchSleep();
 
 void sda_setLcdCalibrationFlag(uint8_t val);
 
@@ -62,5 +65,7 @@ void sda_calibrate();
 #ifdef TOUCH_USE_BATTERY_MEASUREMENT
 uint16_t getBatteryVoltage();
 #endif
+
+uint8_t touch_read_adc_xy(touchXY *result);
 
 #endif /* TOUCH_TOUCH_H_ */
